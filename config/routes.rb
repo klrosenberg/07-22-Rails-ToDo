@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get "home" => 'main#main'
+  
+  ###
+  
   get "users" => 'users#index', :as => "users"
   
   delete "users/:id" => 'users#destroy'
