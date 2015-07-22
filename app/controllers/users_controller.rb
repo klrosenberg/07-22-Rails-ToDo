@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     # Loads view in views/users/show
   end
 
+  # Form
   def new
     @user = User.new
   end
