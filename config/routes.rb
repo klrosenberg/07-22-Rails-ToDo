@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   
   get "home" => 'main#main'
   
+  get "users/login" => 'users#login', :as => "login"
+  
   ###
   
   get "users" => 'users#index', :as => "users"
