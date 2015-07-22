@@ -5,5 +5,5 @@
 <hr>
 
 <% @users.all.each do |user| %>
-  <p><a href="/users/<%= user.id %>"><%= user.name %>: <%= user.email%></a></p>
+  <p><a href="<%= user_path(user.id) %>"><%= user.name %>: <%= user.email%></a></p>
 <% end %>
