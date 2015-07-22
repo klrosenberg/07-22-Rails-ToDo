@@ -1,0 +1,7 @@
+<h1>New task</h1>
+
+<%= form_tag tasks_path, :method => "post" do %>
+  <label for="description">Task</label>
+  <input type="text" name="user[name]" placeholder="Name">
+  <input type="submit">
+<% end %>
