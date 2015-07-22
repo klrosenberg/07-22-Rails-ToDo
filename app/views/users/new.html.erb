@@ -2,10 +2,10 @@
 
 <%= form_tag "/users", :method => "post" do %>
   <label for="name">Name</label>
-  <input type="text" name="name" placeholder="Name">
+  <input type="text" name="user[name]" placeholder="Name">
   <label for="email">Email</label>
-  <input type="text" name="email" placeholder="Email">
+  <input type="text" name="user[email]" placeholder="Email">
   <label for="password">Password</label>
-  <input type="password" name="password" placeholder="Password">
+  <input type="password" name="user[password]" placeholder="Password">
   <input type="submit">
 <% end %>

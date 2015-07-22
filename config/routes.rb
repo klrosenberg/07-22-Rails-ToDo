@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
   get "users" => 'users#index'
+
+  put "users/:id" => 'users#update'
+  
+  get "users/:id/edit" => 'users#edit'
   
   post "users" => 'users#create'
   
