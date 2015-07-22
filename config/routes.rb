@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  get "users" => 'users#index', :as => "list"
+  get "users" => 'users#index', :as => "users"
   
   delete "users/:id" => 'users#destroy'
 
