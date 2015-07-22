@@ -8,6 +8,20 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     # Loads view in views/users/show
   end
+  
+  # Form
+  def edit
+    @user = User.find(params[:id])
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to "/users"
+    else
+      render "edit"
+    end
+  end
 
   # Form
   def new
