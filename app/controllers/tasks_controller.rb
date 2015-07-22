@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
 
   def index
-    @tasks = Task.all
+    @tasks = Task.where("user_id = session[id]") #TODO
   end
   
   def destroy
