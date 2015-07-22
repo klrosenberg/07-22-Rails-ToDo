@@ -1,0 +1,9 @@
+<h1>Edit user</h1>
+
+<%= form_tag "/users/#{@user.id}", :method => "put" do %>
+  <label for="name">Name</label>
+  <input type="text" name="user[name]" placeholder="Name" value="<%= @user.name %>">
+  <label for="email">Email</label>
+  <input type="text" name="user[email]" placeholder="Email" value="<%= @user.email %>">
+  <input type="submit">
+<% end %>
