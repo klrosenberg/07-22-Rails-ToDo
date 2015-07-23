@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  get "home" => 'main#main'
+  root 'main#main'
   
   get "users/login" => 'users#login', :as => "login"
   

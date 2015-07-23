@@ -34,6 +34,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
+  # TODO add bcrypt and set session id and redirect to profile page 
   def create
     @user = User.new(user_params)
     if @user.save
