@@ -1,19 +1,19 @@
 class UsersController < ApplicationController
 
-  # def login
-  #   @user = User.where("email" => params["user"]["email"])
-  #   password_guess = params["user"]["password"]
-  #
-  #   actual_password = BCrypt::Password.new(@user[0].password)
-  #   session[:user_id] = @user[0].id
-  #
-  #   if password_guess == actual_password
-  #     redirect_to user_path
-  #   else
-  #     @user.errors << "Please enter the correct email/password combination."
-  #     render "login"
-  #   end
-  # end
+  def login
+    @user = User.where("email" => params["user"]["email"])
+    password_guess = params["user"]["password"]
+
+    actual_password = BCrypt::Password.new(@user[0].password)
+    session[:user_id] = @user[0].id
+
+    if password_guess == actual_password
+      redirect_to user_path
+    else
+      @user.errors << "Please enter the correct email/password combination."
+      render "login"
+    end
+  end
   
   def logout
     session.clear
@@ -31,17 +31,18 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = User.find(params[:id])
+    @user = User.find(session[:user_id])
+    @tasks = Task.where("user_id" => session[:user_id])
     # Loads view in views/users/show
   end
   
   # Form
   def edit
-    @user = User.find(params[:id])
+    @user = User.find(session[:user_id])
   end
   
   def update
-    @user = User.find(params[:id])
+    @user = User.find(session[:user_id])
     if @user.update_attributes(user_params)
       redirect_to users_path
     else

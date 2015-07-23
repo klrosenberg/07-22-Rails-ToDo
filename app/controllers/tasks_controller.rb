@@ -37,7 +37,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new({"user_id" => session[:user_id], "description" => params["task"]["description"]})
     if @task.save
-      redirect_to tasks_path
+      redirect_to user_path(session[:user_id])
     else
       render "new"
     end

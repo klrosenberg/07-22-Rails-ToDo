@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   
   get "users/:id/edit" => 'users#edit', :as => "edit_user"
   
-  post "users" => 'users#create', :as => "create"
+  post "users" => 'users#create', :as => "create_user"
   
   get "users/new" => 'users#new', :as => "new_user"
   
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   
   get "tasks/:id/edit" => 'tasks#edit', :as => "edit_task"
   
-  post "tasks" => 'tasks#create'
+  post "tasks" => 'tasks#create', :as => "create_task"
   
   get "tasks/new" => 'tasks#new', :as => "new_task"
   
