@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   get "users/login" => 'users#login', :as => "login"
   
-  ###
+  ### resources :users
   
   get "users" => 'users#index', :as => "users"
   
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   
   get "users/:id" => 'users#show', :as => "user"
   
-  ###
+  ### resources :tasks
   
   get "tasks" => 'tasks#index', :as => "tasks"
   
