@@ -1,5 +1,19 @@
 class UsersController < ApplicationController
 
+  def login
+    @user = User.where("email" => params["user"]["email"])
+    password_guess = params["user"]["password"]
+    
+    actual_password = BCrypt::Password.new(@user[0].password)
+    session[:user_id] = @user[0].id
+    
+    if password_guess == actual_password
+      redirect_to user_path
+    else
+      @user.errors << "Please enter the correct email/password combination."
+      render "login"
+  end
+
   def index
     @users = User.all
   end
@@ -36,9 +50,11 @@ class UsersController < ApplicationController
   
   # TODO add bcrypt and set session id and redirect to profile page 
   def create
-    @user = User.new(user_params)
+    the_password = BCrypt::Password.create(params["user"]["password"])
+    @user = User.new({"email" => params["user"]["email"], "name" => params["user"]["name"], "password" => the_password})
     if @user.save
-      redirect_to users_path
+      session[:user_id] = @user.id
+      redirect_to user_path
     else
       render "new"
     end
