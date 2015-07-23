@@ -12,6 +12,12 @@ class UsersController < ApplicationController
     else
       @user.errors << "Please enter the correct email/password combination."
       render "login"
+    end
+  end
+  
+  def logout
+    session.clear
+    redirect_to main_path
   end
 
   def index
