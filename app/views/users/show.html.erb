@@ -2,6 +2,7 @@
 
 <a href="<%= edit_user_path(@user.id) %>">Update profile</a>
 <a href="<%= user_path(@user.id) %>" data-method="delete" data-confirm="Are you sure you want to delete your profile?">Delete profile</a>
+<a href="<%= logout_path %>">Logout</a>
 
 <h2>To Do</h2>
 
@@ -9,19 +10,3 @@
 
 <hr>
 
-<table>
-  <% @tasks.all.each do |task| %>
-  <tr>
-    <td><%= task.description %></td>
-    <td>Smith</td> 
-    <td>50</td>
-  </tr>
-  <% end %>
-</table>
-
-
-
-
-<!--<%# @tasks.all.each do |task| %>
-  <p><a href="<%=# task_path(task.id) %>"><%=# task.description %></a></p>
-<%# end %> -->

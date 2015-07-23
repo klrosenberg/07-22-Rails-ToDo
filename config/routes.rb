@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   
   # root 'main#main'
-  get "home" => 'main#main'
+  get "home" => 'main#main', :as => "main"
   
   get "users/login" => 'users#login', :as => "login"
+  
+  get "logout" => 'users#logout', :as => "logout"
   
   ### resources :users
   
