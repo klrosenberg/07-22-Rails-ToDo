@@ -1,19 +1,19 @@
 class UsersController < ApplicationController
 
-  def login
-    @user = User.where("email" => params["user"]["email"])
-    password_guess = params["user"]["password"]
-    
-    actual_password = BCrypt::Password.new(@user[0].password)
-    session[:user_id] = @user[0].id
-    
-    if password_guess == actual_password
-      redirect_to user_path
-    else
-      @user.errors << "Please enter the correct email/password combination."
-      render "login"
-    end
-  end
+  # def login
+  #   @user = User.where("email" => params["user"]["email"])
+  #   password_guess = params["user"]["password"]
+  #
+  #   actual_password = BCrypt::Password.new(@user[0].password)
+  #   session[:user_id] = @user[0].id
+  #
+  #   if password_guess == actual_password
+  #     redirect_to user_path
+  #   else
+  #     @user.errors << "Please enter the correct email/password combination."
+  #     render "login"
+  #   end
+  # end
   
   def logout
     session.clear
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
     @user = User.new({"email" => params["user"]["email"], "name" => params["user"]["name"], "password" => the_password})
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_path
+      redirect_to user_path(@user.id)
     else
       render "new"
     end

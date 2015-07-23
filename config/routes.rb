@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
-  root 'main#main'
+  # root 'main#main'
+  get "home" => 'main#main'
   
   get "users/login" => 'users#login', :as => "login"
   
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
   
   get "users/:id/edit" => 'users#edit', :as => "edit_user"
   
-  post "users" => 'users#create'
+  post "users" => 'users#create', :as => "create"
   
   get "users/new" => 'users#new', :as => "new_user"
   
